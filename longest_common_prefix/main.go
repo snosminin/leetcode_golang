@@ -3,28 +3,30 @@ package main
 import "fmt"
 
 func main() {
-	var array = []string{"flower","flow","flight"}
+	var array = []string{"cir","car"}
 
 	fmt.Println(longestCommonPrefix(array))
 }
 
 func longestCommonPrefix(strs []string) string {
 	result := ""
+	if(len(strs) == 0) {
+		return result
+	}
+
+	if(len(strs) == 1) {
+		return strs[0]
+	}
+
 	for symbolIndex := range 200 {
-		symbolPrefixAccepted := true
-		for stringIndex, str := range strs {
-			if(stringIndex >= len(str) - 1) {
+		for stringIndex := range len(strs)-1 {
+			str := strs[stringIndex]
+			strNext := strs[stringIndex + 1]
+			if(symbolIndex >= len(str) || symbolIndex >= len(strNext) || str[symbolIndex] != strNext[symbolIndex]) {
 				return result
 			}
-			
-			if(str[symbolIndex] != strs[stringIndex][symbolIndex]) {
-				symbolPrefixAccepted = false
-				break
-			}
 		}
-		if(symbolPrefixAccepted) {
-			result += string(strs[1][symbolIndex])
-		}
+		result += string(strs[0][symbolIndex])
 	}
-    return ""
+    return result
 }
