@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	var array = "MCMXCIV"
@@ -8,36 +10,47 @@ func main() {
 	fmt.Println(romanToInt(array))
 }
 
+type Pair struct {
+    current byte
+	next byte
+}
+
 func romanToInt(s string) int {
 	result := 0
-    var romanSymbols = map[string]int {
-		"I":1,
-		"V":5,
-		"X":10,
-		"L":50,
-		"C":100,
-		"D":500,
-		"M":1000,
-		"CM":900,
-		"XC":90,
-		"IX":9,
-		"IV":4,
-		"XL":40,
-		"CD":400,
+    var romanSymbols = map[byte]int {
+		73:1,
+		86:5,
+		88:10,
+		76:50,
+		67:100,
+		68:500,
+		77:1000,
+	}
+		var romanSymbolPairs = map[Pair]int {
+		{current: 67, next: 77}:900,
+		{current: 88, next: 67}:90,
+		{current: 73, next: 88}:9,
+		{current: 73, next: 86}:4,
+		{current: 88, next: 76}:40,
+		{current: 67, next: 68}:400,
 	}
 	i := 0
-	for i < len(s) {
+	length := len(s)
+	for i < length {
 		c := s[i]
-		next := 0
-		if(i < len(s) - 1) {
-			val := romanSymbols[string(c) + string(s[i+1])]
-			next = val
+
+		if(i < length - 1){
+			next := s[i+1]
+			valPair, okPair := romanSymbolPairs[Pair{current: c, next: next}]
+			if(okPair) {
+				result += valPair
+				i += 2
+				continue
+			}
 		}
-		val, ok := romanSymbols[string(c)]
-		if(next > 0) {
-			result += next
-			i += 1
-		} else if(ok) {
+
+		val, ok := romanSymbols[c]
+		if(ok) {
 			result += val
 		}
 		i += 1
