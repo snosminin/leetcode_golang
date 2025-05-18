@@ -6,7 +6,6 @@ import (
 
 func main() {
 	var array = [...]int{0,1,0,3,12}
-	const sumToSearch = 25
 	moveZeroes(array[:])
 	fmt.Println(array)
 }
