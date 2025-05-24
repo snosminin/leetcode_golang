@@ -16,6 +16,25 @@ func main() {
 	fmt.Println(isPalindrome(&l1))
 }
 
+type Stack struct {
+    items []int
+}
+
+func (s *Stack) Push(data int) {
+    s.items = append(s.items, data)
+}
+
+func (s *Stack) Pop() {
+    if s.IsEmpty() {
+        return
+    }
+    s.items = s.items[:len(s.items)-1]
+}
+
+func (s *Stack) IsEmpty() bool {
+    return len(s.items) == 0
+}
+
  
  func isPalindrome(head *ListNode) bool {
     return false
