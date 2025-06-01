@@ -9,22 +9,24 @@ type TreeNode struct {
 	}
 
 func main() {
-	fmt.Println(inorderTraversal(nil))
+	fmt.Println(isValidBST(nil))
 }
 
-func inorderTraversal(root *TreeNode) []int {
+func isValidBST(root *TreeNode) bool {
+	return checkBST(root, nil, nil)
+}
+
+func checkBST(root *TreeNode, minNode *TreeNode, maxNode *TreeNode) bool {
 	if(root == nil) {
-		return nil
+		return true
 	}
 
-	result := []int {}
-	if(root.Left != nil) {
-		result = append(result, inorderTraversal(root.Left)...)
+	if(minNode!=nil && minNode.Val >= root.Val) {
+		return false
 	}
-	result = append(result, root.Val)
-	if(root.Right != nil) {
-		result = append(result, inorderTraversal(root.Right)...)
+	if(maxNode!= nil && maxNode.Val <= root.Val) {
+		return false
 	}
 
-	return result
+	return checkBST(root.Left, minNode, root) && checkBST(root.Right, root, maxNode)
 }
