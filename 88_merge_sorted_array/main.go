@@ -15,9 +15,18 @@ func main() {
 }
 
 func merge(nums1 []int, m int, nums2 []int, n int)  {
-    i, j := 0, 0
+	nums1Index := m - 1
+	nums2Index := n - 1
+	mergedIndex := m + n - 1
 
-	for i < m || j < n {
-		
+	for nums2Index >= 0 {
+		if(nums1Index < 0 || nums2[nums2Index] >= nums1[nums1Index]){
+			nums1[mergedIndex] = nums2[nums2Index]
+			nums2Index--
+		} else {
+			nums1[mergedIndex] = nums1[nums1Index]
+			nums1Index--
+		}
+		mergedIndex--
 	}
 }
