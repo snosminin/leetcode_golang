@@ -9,7 +9,7 @@ type TreeNode struct {
 	}
 
 func main() {
-	nums, val := []int{}, 0
+	nums, val := []int{1,2,3,4,5,6,7}, 3
 	rotate(nums, val)
 	fmt.Println(nums, val)
 }
