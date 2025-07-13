@@ -10,26 +10,25 @@ func main() {
 }
 
 func subarraySum(nums []int, k int) int {
-    prefixSum := 0
-	result:=0
-	prefixSumMap := make(map[int] int)
+	prefixSum := 0
+	result := 0
+	prefixSumMap := make(map[int]int)
 
 	for _, num := range nums {
 		prefixSum += num
-		if(prefixSum == k) {
+		if prefixSum == k {
 			result++
 		}
-		count, ok := prefixSumMap[prefixSum - k] 
-		if(ok) {
+		count, ok := prefixSumMap[prefixSum-k]
+		if ok {
 			result += count
 		}
 
 		countPrefixSum, okPrefixSum := prefixSumMap[prefixSum]
-		if(!okPrefixSum){
+		if !okPrefixSum {
 			prefixSumMap[prefixSum] = 0
 		}
 		prefixSumMap[prefixSum] = countPrefixSum + 1
-		
 
 	}
 

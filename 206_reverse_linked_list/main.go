@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -22,20 +22,20 @@ func main() {
 }
 
 func reverseList(head *ListNode) *ListNode {
-    if(head == nil) {
+	if head == nil {
 		return head
 	}
-	stack := []ListNode {}
-	current:=head
+	stack := []ListNode{}
+	current := head
 	for {
 		stack = append(stack, *current)
 		current = current.Next
-		if(current == nil) {
+		if current == nil {
 			break
 		}
 	}
 
-	newHead := &ListNode {Val: 0, Next: nil}
+	newHead := &ListNode{Val: 0, Next: nil}
 	newCurrent := newHead
 
 	for {
@@ -43,7 +43,7 @@ func reverseList(head *ListNode) *ListNode {
 		stack = stack[:len(stack)-1]
 		newCurrent = newCurrent.Next
 		newCurrent.Next = nil
-		if(len(stack) == 0) {
+		if len(stack) == 0 {
 			break
 		}
 	}

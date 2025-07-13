@@ -15,7 +15,7 @@ func twoSumSearch(nums []int, target int) []int {
 		var diff = target - item
 		_, ok := resultMap[diff]
 		if ok {
-			return []int {i, resultMap[diff]}
+			return []int{i, resultMap[diff]}
 		}
 		resultMap[item] = i
 	}

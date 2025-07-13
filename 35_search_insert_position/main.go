@@ -18,7 +18,7 @@ func BinarySearch(nums []int, target int) int {
 
 		if middle == left && middle == right {
 			if target > nums[middle] {
-				middle +=1
+				middle += 1
 			}
 			return middle
 		}

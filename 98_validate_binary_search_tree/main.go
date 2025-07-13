@@ -3,10 +3,10 @@ package main
 import "fmt"
 
 type TreeNode struct {
-		Val int
-		Left *TreeNode
-		Right *TreeNode
-	}
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
 func main() {
 	fmt.Println(isValidBST(nil))
@@ -17,14 +17,14 @@ func isValidBST(root *TreeNode) bool {
 }
 
 func checkBST(root *TreeNode, minNode *TreeNode, maxNode *TreeNode) bool {
-	if(root == nil) {
+	if root == nil {
 		return true
 	}
 
-	if(minNode!=nil && minNode.Val >= root.Val) {
+	if minNode != nil && minNode.Val >= root.Val {
 		return false
 	}
-	if(maxNode!= nil && maxNode.Val <= root.Val) {
+	if maxNode != nil && maxNode.Val <= root.Val {
 		return false
 	}
 

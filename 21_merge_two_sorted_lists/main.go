@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -20,11 +20,11 @@ func main() {
 }
 
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
-    var resultListNode *ListNode = &ListNode{Val: 0, Next: nil}
-    var current  = resultListNode
-	
+	var resultListNode *ListNode = &ListNode{Val: 0, Next: nil}
+	var current = resultListNode
+
 	for list1 != nil && list2 != nil {
-		if(list1.Val <= list2.Val) {
+		if list1.Val <= list2.Val {
 			current.Next = list1
 			list1 = list1.Next
 		} else {
@@ -35,8 +35,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 		current = current.Next
 	}
 
-	
-	if (list1 == nil) {
+	if list1 == nil {
 		current.Next = list2
 	} else {
 		current.Next = list1

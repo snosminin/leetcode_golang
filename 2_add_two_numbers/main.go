@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -15,7 +15,7 @@ func main() {
 	var l3 = ListNode{Val: 3, Next: &l4}
 	var l2 = ListNode{Val: 2, Next: &l3}
 	var l1 = ListNode{Val: 0, Next: &l2}
-	
+
 	var m3 = ListNode{Val: 9, Next: nil}
 	var m2 = ListNode{Val: 9, Next: &m3}
 	var m1 = ListNode{Val: 9, Next: &m2}
@@ -26,7 +26,7 @@ func main() {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-    result := &ListNode{Val: 0, Next: nil}
+	result := &ListNode{Val: 0, Next: nil}
 
 	current1 := l1
 	current2 := l2
@@ -36,12 +36,12 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		val1 := 0
 		val2 := 0
 
-		if(current1 != nil) {
+		if current1 != nil {
 			val1 = current1.Val
 			current1 = current1.Next
 		}
 
-		if(current2 != nil) {
+		if current2 != nil {
 			val2 = current2.Val
 			current2 = current2.Next
 		}
@@ -52,8 +52,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		currentResult.Next = &ListNode{Val: sum % 10, Next: nil}
 		currentResult = currentResult.Next
 
-		if(current1 == nil && current2 == nil) {
-			if(overflow > 0) {
+		if current1 == nil && current2 == nil {
+			if overflow > 0 {
 				currentResult.Next = &ListNode{Val: overflow, Next: nil}
 			}
 			break

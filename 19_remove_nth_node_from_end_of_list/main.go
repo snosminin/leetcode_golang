@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -21,7 +21,7 @@ func main() {
 
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	length := GetLength(head)
-	if(length == n) {
+	if length == n {
 		return head.Next
 	}
 
@@ -30,7 +30,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 		current = current.Next
 	}
 
-	if(current != nil && current.Next != nil) {
+	if current != nil && current.Next != nil {
 		current.Next = current.Next.Next
 	}
 
@@ -38,14 +38,14 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 }
 
 func GetLength(head *ListNode) int {
-	if(head == nil) {
+	if head == nil {
 		return 0
 	}
 
 	current := head
 	index := 0
 	for {
-		if(current == nil) {
+		if current == nil {
 			return index
 		}
 		index++

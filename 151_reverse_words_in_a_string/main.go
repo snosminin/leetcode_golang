@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	s := "the sky is blue"
 
-	fmt.Println("-",reverseWords(s),"-")
+	fmt.Println("-", reverseWords(s), "-")
 }
 
 func reverseWords(s string) string {
@@ -35,5 +35,5 @@ func reverseWords(s string) string {
 		stack = stack[:len(stack)-1]
 	}
 
-	return string(result[:len(result) - 1])
+	return string(result[:len(result)-1])
 }

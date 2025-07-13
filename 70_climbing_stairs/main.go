@@ -7,7 +7,7 @@ func main() {
 }
 
 func climbStairs(n int) int {
-    previous1 := 1
+	previous1 := 1
 	previous2 := 1
 
 	for i := 2; i <= n; i++ {

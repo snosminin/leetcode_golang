@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -20,23 +20,23 @@ func main() {
 }
 
 func swapPairs(head *ListNode) *ListNode {
-    if(head == nil) {
+	if head == nil {
 		return nil
 	}
-	if(head.Next == nil){
+	if head.Next == nil {
 		return head
 	}
 
-	result := &ListNode {Val: 0, Next: head}
-	current:=result
+	result := &ListNode{Val: 0, Next: head}
+	current := result
 
 	for {
-		if(current.Next == nil || current.Next.Next == nil) {
+		if current.Next == nil || current.Next.Next == nil {
 			return result.Next
 		}
 
-		nextNext:=current.Next.Next
-		next:=current.Next
+		nextNext := current.Next.Next
+		next := current.Next
 		swap := nextNext.Next
 		current.Next = nextNext
 		current.Next.Next = next

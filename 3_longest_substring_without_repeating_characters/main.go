@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	s := "abcabcbb"
-	
+
 	fmt.Println(lengthOfLongestSubstring(s))
 }
 
@@ -16,10 +16,10 @@ func lengthOfLongestSubstring(s string) int {
 	currentLength := 0
 	for end, c := range s {
 		lastIndex, ok := lastIndexMap[c]
-		if(!ok) {
+		if !ok {
 			lastIndex = -1
 		}
-		start = max(start,lastIndex+1)
+		start = max(start, lastIndex+1)
 
 		currentLength = end - start + 1
 		maxLength = max(currentLength, maxLength)

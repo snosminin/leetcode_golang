@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -22,21 +22,21 @@ func main() {
 }
 
 func detectCycle(head *ListNode) *ListNode {
-	if (head == nil) {
+	if head == nil {
 		return nil
 	}
 	current := head
 	currentDoubleStep := head
-    for current.Next != nil && currentDoubleStep.Next != nil {
+	for current.Next != nil && currentDoubleStep.Next != nil {
 		current = current.Next
 		currentDoubleStep = currentDoubleStep.Next
-		if(currentDoubleStep.Next == nil) {
+		if currentDoubleStep.Next == nil {
 			break
 		}
 		currentDoubleStep = currentDoubleStep.Next
-		if(current == currentDoubleStep){
+		if current == currentDoubleStep {
 			currentDoubleStep = head
-			for current != currentDoubleStep{
+			for current != currentDoubleStep {
 				current = current.Next
 				currentDoubleStep = currentDoubleStep.Next
 			}

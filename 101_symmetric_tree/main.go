@@ -3,27 +3,27 @@ package main
 import "fmt"
 
 type TreeNode struct {
-		Val int
-		Left *TreeNode
-		Right *TreeNode
-	}
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
 func main() {
 	fmt.Println(isSymmetric(nil))
 }
 
 func isSymmetric(root *TreeNode) bool {
-    return checkSymmetry(root, root)
+	return checkSymmetry(root, root)
 }
 
 func checkSymmetry(node1 *TreeNode, node2 *TreeNode) bool {
-	if(node1 == nil && node2 == nil) {
+	if node1 == nil && node2 == nil {
 		return true
 	}
-	if(node1 == nil) != (node2 == nil) {
+	if (node1 == nil) != (node2 == nil) {
 		return false
 	}
-	if(node1.Val != node2.Val){
+	if node1.Val != node2.Val {
 		return false
 	}
 

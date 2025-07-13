@@ -3,10 +3,10 @@ package main
 import "fmt"
 
 type TreeNode struct {
-		Val int
-		Left *TreeNode
-		Right *TreeNode
-	}
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
 func main() {
 	fmt.Println(isSameTree(nil, nil))

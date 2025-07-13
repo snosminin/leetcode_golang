@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -20,13 +20,13 @@ func main() {
 	var m2 = ListNode{Val: 4, Next: &m3}
 	var m1 = ListNode{Val: 1, Next: &m2}
 
-	arr := []*ListNode {&l1, &m1, &o1}
+	arr := []*ListNode{&l1, &m1, &o1}
 
 	fmt.Println(mergeKLists(arr))
 }
 
 func mergeKLists(lists []*ListNode) *ListNode {
-    if(lists == nil || len(lists) == 0) {
+	if lists == nil || len(lists) == 0 {
 		return nil
 	}
 
@@ -36,19 +36,19 @@ func mergeKLists(lists []*ListNode) *ListNode {
 	for _, list := range lists {
 		current = resultListNode
 		for current != nil {
-			if(list == nil) {
+			if list == nil {
 				break
-			} else if(current.Next == nil) {
+			} else if current.Next == nil {
 				current.Next = list
 				list = list.Next
 				current.Next.Next = nil
-			} else if(list.Val >= current.Val && list.Val <= current.Next.Val) {
+			} else if list.Val >= current.Val && list.Val <= current.Next.Val {
 				swap := current.Next
 				current.Next = list
 				list = list.Next
 				current.Next.Next = swap
 			} else {
-				current = current.Next 
+				current = current.Next
 			}
 		}
 	}

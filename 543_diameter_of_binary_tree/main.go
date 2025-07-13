@@ -3,10 +3,10 @@ package main
 import "fmt"
 
 type TreeNode struct {
-		Val int
-		Left *TreeNode
-		Right *TreeNode
-	}
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
 func main() {
 	fmt.Println(diameterOfBinaryTree(nil))
@@ -21,14 +21,14 @@ func diameterOfBinaryTree(root *TreeNode) int {
 }
 
 func depthSearch(root *TreeNode) int {
-	if(root == nil) {
+	if root == nil {
 		return 0
 	}
 
 	leftDepth := depthSearch(root.Left)
 	rightDepth := depthSearch(root.Right)
 
-	maxDiameter = max(maxDiameter, leftDepth + rightDepth)
+	maxDiameter = max(maxDiameter, leftDepth+rightDepth)
 
-    return max(leftDepth, rightDepth) + 1
+	return max(leftDepth, rightDepth) + 1
 }

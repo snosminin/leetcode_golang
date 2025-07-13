@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var array = []int{1,2}
+	var array = []int{1, 2}
 
 	fmt.Println(removeDuplicates(array))
 }

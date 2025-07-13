@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -20,31 +20,31 @@ func main() {
 }
 
 type Stack struct {
-    items []int
+	items []int
 }
 
 func (s *Stack) Push(data int) {
-    s.items = append(s.items, data)
+	s.items = append(s.items, data)
 }
 
 func (s *Stack) Pop() int {
-    if s.IsEmpty() {
-        return -1
-    }
+	if s.IsEmpty() {
+		return -1
+	}
 	last := s.items[len(s.items)-1]
-    s.items = s.items[:len(s.items)-1]
+	s.items = s.items[:len(s.items)-1]
 	return last
 }
 
 func (s *Stack) IsEmpty() bool {
-    return len(s.items) == 0
+	return len(s.items) == 0
 }
 
 func GetLength(head *ListNode) int {
 	count := 1
 	current := head
 	for {
-		if(current.Next != nil) {
+		if current.Next != nil {
 			count++
 			current = current.Next
 			continue
@@ -53,29 +53,28 @@ func GetLength(head *ListNode) int {
 	}
 }
 
- 
 func isPalindrome(head *ListNode) bool {
 	length := GetLength(head)
 	halfLength := length / 2
 	currentNode := head
-	isOddNumber := length % 2 == 1
+	isOddNumber := length%2 == 1
 
-	if(length == 1) {
+	if length == 1 {
 		return true
 	}
 
-	stack := Stack{items: []int {} }
+	stack := Stack{items: []int{}}
 	for range halfLength {
 		stack.Push(currentNode.Val)
 		currentNode = currentNode.Next
 	}
 
-	if(isOddNumber) {
+	if isOddNumber {
 		currentNode = currentNode.Next
 	}
 
 	for range halfLength {
-		if(stack.Pop() != currentNode.Val) {
+		if stack.Pop() != currentNode.Val {
 			return false
 		}
 		currentNode = currentNode.Next

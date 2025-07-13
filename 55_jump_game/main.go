@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var array = []int{2,3,1,1,4}
+	var array = []int{2, 3, 1, 1, 4}
 
 	fmt.Println(canJump(array[:]))
 }

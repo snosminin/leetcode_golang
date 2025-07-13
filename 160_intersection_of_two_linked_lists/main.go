@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -15,7 +15,7 @@ func main() {
 	var l3 = ListNode{Val: 3, Next: &l4}
 	var l2 = ListNode{Val: 2, Next: &l3}
 	var l1 = ListNode{Val: 1, Next: &l2}
-	
+
 	var m3 = ListNode{Val: 3, Next: &l4}
 	var m2 = ListNode{Val: 2, Next: &m3}
 	var m1 = ListNode{Val: 1, Next: &m2}
@@ -26,43 +26,43 @@ func main() {
 }
 
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
-	if(headA == nil || headB == nil) {
+	if headA == nil || headB == nil {
 		return nil
 	}
 
-	stackA := []*ListNode {}
-	currentA:=headA
+	stackA := []*ListNode{}
+	currentA := headA
 	for {
-		if(currentA == nil) {
+		if currentA == nil {
 			break
 		}
 		stackA = append(stackA, currentA)
 		currentA = currentA.Next
 	}
 
-	stackB := []*ListNode {}
-	currentB:=headB
+	stackB := []*ListNode{}
+	currentB := headB
 	for {
-		if(currentB == nil) {
+		if currentB == nil {
 			break
 		}
 		stackB = append(stackB, currentB)
 		currentB = currentB.Next
 	}
 
-	var leastLength int;
-	if (len(stackA) > len(stackB)) {
+	var leastLength int
+	if len(stackA) > len(stackB) {
 		leastLength = len(stackB)
 	} else {
 		leastLength = len(stackA)
 	}
-	
+
 	var result *ListNode = nil
 	for range leastLength {
 		lastStackA := stackA[len(stackA)-1]
 		lastStackB := stackB[len(stackB)-1]
 
-		if(lastStackA == lastStackB) {
+		if lastStackA == lastStackB {
 			result = lastStackA
 		} else {
 			break
